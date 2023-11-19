@@ -219,7 +219,7 @@ Exec=/usr/local/lib/arkenfox-auto-update" > /etc/pacman.d/hooks/arkenfox.hook
 }
 
 installffaddons(){
-	addonlist="ublock-origin decentraleyes istilldontcareaboutcookies tridactyl darkreader keepassxc imagus"
+	addonlist="ublock-origin decentraleyes istilldontcareaboutcookies tridactyl darkreader keepassxc-browser imagus"
 	addontmp="$(mktemp -d)"
 	trap "rm -fr $addontmp" HUP INT QUIT TERM PWR EXIT
 	IFS=' '
