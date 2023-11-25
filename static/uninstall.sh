@@ -8,6 +8,14 @@ getuserandpass() {
 	done
 }
 
+uninstall-bins() {
+	rm -rf /home/"$name"/.local/bin
+}
+
+uninstall-local-share-larbs() {
+	rm -rf /home/"$name"/.local/share/larbs
+}
+
 uninstalllibrewolf() {
 	rm -rf /home/"$name"/.librewolf
 	rm -rf /home/"$name"/.config/firefox
@@ -33,5 +41,9 @@ getuserandpass || error "User exited."
 uninstalllibrewolf
 
 uninstalldoomemacs
+
+uninstall-local-share-larbs
+
+uninstall-bins
 
 finalize
