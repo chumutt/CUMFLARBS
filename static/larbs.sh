@@ -118,6 +118,12 @@ maininstall() {
 	installpkg "$1"
 }
 
+doominstall() {
+	sudo -u "$name" mkdir -p "/home/$name/.config/emacs"
+	sudo -u "$name" git clone https://github.com/doomemacs/doomemacs /home/"$name"/.config/emacs
+	sudo -u "$name" doom install -!
+}
+
 gitmakeinstall() {
 	progname="${1##*/}"
 	progname="${progname%.git}"
@@ -219,7 +225,7 @@ Exec=/usr/local/lib/arkenfox-auto-update" > /etc/pacman.d/hooks/arkenfox.hook
 }
 
 installffaddons(){
-	addonlist="ublock-origin decentraleyes istilldontcareaboutcookies tridactyl darkreader keepassxc-browser imagus tampermonkey"
+	addonlist="ublock-origin decentraleyes istilldontcareaboutcookies tridactyl darkreader keepassxc-browser imagus tampermonkey video-downloadhelper betterttv fireshot download-images-from-tabs enhancer-for-youtube adnauseam audio-compressor clearurls dimmer foxytab languagetool instagram-save highlighter-notes redactit scrollanywhere singlefile webp-image-converter redacted pinterest-guest tab-stash"
 	addontmp="$(mktemp -d)"
 	trap "rm -fr $addontmp" HUP INT QUIT TERM PWR EXIT
 	IFS=' '
