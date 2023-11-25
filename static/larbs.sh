@@ -122,6 +122,7 @@ doominstall() {
 	sudo -u "$name" mkdir -p "/home/$name/.config/emacs"
 	sudo -u "$name" git clone https://github.com/doomemacs/doomemacs /home/"$name"/.config/emacs
 	sudo -u "$name" doom install -!
+	sudo -u "$name" doom sync
 }
 
 gitmakeinstall() {

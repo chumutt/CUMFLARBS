@@ -11,10 +11,15 @@ getuserandpass() {
 uninstalllibrewolf() {
 	rm -rf /home/"$name"/.librewolf
 	rm -rf /home/"$name"/.config/firefox
+	rm -rf /home/"$name"/.cache/librewolf
 }
 
 uninstalldoomemacs() {
+	# core
 	rm -rf /home/"$name"/.config/emacs
+
+	# personal
+	rm -rf /home/"$name"/.config/doom
 }
 
 finalize() {
