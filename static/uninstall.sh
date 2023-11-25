@@ -8,6 +8,11 @@ getuserandpass() {
 	done
 }
 
+uninstalllibrewolf() {
+	rm -rf /home/"$name"/.librewolf
+	rm -rf /home/"$name"/.config/firefox
+}
+
 uninstalldoomemacs() {
 	rm -rf /home/"$name"/.config/emacs
 }
@@ -19,6 +24,8 @@ finalize() {
 
 # Get and verify username and password.
 getuserandpass || error "User exited."
+
+uninstalllibrewolf
 
 uninstalldoomemacs
 
