@@ -8,11 +8,11 @@ getuserandpass() {
 	done
 }
 
-uninstall-bins() {
+uninstallbins() {
 	rm -rf /home/"$name"/.local/bin
 }
 
-uninstall-local-share-larbs() {
+uninstalllocalsharelarbs() {
 	rm -rf /home/"$name"/.local/share/larbs
 }
 
@@ -42,8 +42,8 @@ uninstalllibrewolf
 
 uninstalldoomemacs
 
-uninstall-local-share-larbs
+uninstalllocalsharelarbs
 
-uninstall-bins
+uninstallbins
 
 finalize
