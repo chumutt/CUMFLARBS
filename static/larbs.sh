@@ -125,6 +125,15 @@ doominstall() {
 	sudo -u "$name" doom sync
 }
 
+roswellinstall() {
+	sudo -u "$name" ros install
+	sudo -u "$name" ros install sly
+}
+
+roswellmv() {
+	sudo -u "$name" mv "/home/$name/.roswell" "/home/$name/.local/share/roswell"
+}
+
 gitmakeinstall() {
 	progname="${1##*/}"
 	progname="${progname%.git}"
@@ -383,6 +392,9 @@ echo "kernel.dmesg_restrict = 0" > /etc/sysctl.d/dmesg.conf
 
 #install doom emacs
 doominstall
+
+roswellinstall
+roswellmv
 
 # Last message! Install complete!
 finalize
