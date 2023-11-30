@@ -134,6 +134,10 @@ roswellmv() {
 	sudo -u "$name" mv "/home/$name/.roswell" "/home/$name/.local/share/roswell"
 }
 
+raysessioncleanup() {
+	sudo -u "$name" rm -rf "/home/$user/Ray\ Sessions"
+}
+
 gitmakeinstall() {
 	progname="${1##*/}"
 	progname="${progname%.git}"
@@ -395,6 +399,8 @@ doominstall
 
 roswellinstall
 roswellmv
+
+raysessioncleanup
 
 # Last message! Install complete!
 finalize
