@@ -135,7 +135,7 @@ roswellmv() {
 }
 
 raysessioncleanup() {
-	sudo -u "$name" rmdir "/home/$name/Ray\ Sessions"
+	sudo -u "$name" mv "/home/$name/Ray\ Sessions" "/tmp"
 }
 
 gitmakeinstall() {
