@@ -1,5 +1,7 @@
 # Luke's Auto-Rice Bootstrapping Scripts (LARBS)
 
+![icon](res/cumflarbs.png)
+
 ## Installation:
 
 On an Arch-based distribution as root, run the following:
