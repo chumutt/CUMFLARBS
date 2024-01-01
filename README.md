@@ -1,6 +1,6 @@
 # Luke's Auto-Rice Bootstrapping Scripts (LARBS)
 
-![icon](res/cumflarbs.png)
+![logo](static/pix/cumflarbs.png)
 
 ## Installation:
 
