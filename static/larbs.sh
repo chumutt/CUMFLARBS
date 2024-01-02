@@ -105,7 +105,8 @@ manualinstall() {
 		--no-tags -q "https://aur.archlinux.org/$1.git" "$repodir/$1" ||
 		{
 			cd "$repodir/$1" || return 1
-			sudo -u "$name" git pull --force origin master
+			sudo -u "$name" git pull --force origin master &&
+				sleep 5
 		}
 	cd "$repodir/$1" || exit 1
 	sudo -u "$name" -D "$repodir/$1" \
