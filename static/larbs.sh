@@ -108,7 +108,7 @@ manualinstall() {
 			sudo -u "$name" git pull --force origin master
 		}
 	cd "$repodir/$1" || exit 1
-	sudo -u "$name" -D "$repodir/$1" \
+	sudo sh -c -u "$name" cd "$repodir/$1" && \
 		makepkg --noconfirm -si || return 1
 }
 
