@@ -125,6 +125,10 @@ doominstall() {
 	sudo -u "$name" doom sync
 }
 
+gamemodeinstall() {
+	usermod -aG gamemode "$name"
+}
+
 roswellinstall() {
 	sudo -u "$name" ros install
 	sudo -u "$name" ros install sly
@@ -387,7 +391,7 @@ pdir="$browserdir/$profile"
 [ -d "$pdir" ] && installffaddons
 
 # Kill the now unnecessary librewolf instance.
-# pkill -u "$name" librewolf
+pkill -u "$name" librewolf
 pkill -u "$name" firefox
 
 # Allow wheel users to sudo with password and allow several system commands
