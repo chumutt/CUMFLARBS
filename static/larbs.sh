@@ -403,12 +403,14 @@ mkdir -p /etc/sysctl.d
 echo "kernel.dmesg_restrict = 0" > /etc/sysctl.d/dmesg.conf
 
 #install doom emacs
-doominstall
+doominstall || error "doom emacs failed to install"
 
-roswellinstall
-roswellmv
+roswellinstall || error "roswell failed to install"
+roswellmv || error "roswell failed to be moved to ~/.local/share/"
 
-raysessioncleanup
+gamemodeinstall || error "failed to apply gamemode group to user in question"
+
+raysessioncleanup || error "failed to clean up after raysession install"
 
 # Last message! Install complete!
 finalize
