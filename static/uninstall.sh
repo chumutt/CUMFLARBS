@@ -22,6 +22,10 @@ uninstalllibrewolf() {
 	rm -rf /home/"$name"/.cache/librewolf
 }
 
+uninstallfirefox() {
+	rm -rf /home/"$name"/.mozilla/firefox
+}
+
 uninstalldoomemacs() {
 	# core
 	rm -rf /home/"$name"/.config/emacs
@@ -39,6 +43,7 @@ finalize() {
 getuserandpass || error "User exited."
 
 uninstalllibrewolf
+uninstallfirefox
 
 uninstalldoomemacs
 
