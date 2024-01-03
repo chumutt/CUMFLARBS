@@ -121,8 +121,8 @@ maininstall() {
 doominstall() {
 	sudo -u "$name" mkdir -p "/home/$name/.config/emacs"
 	sudo -u "$name" git clone https://github.com/doomemacs/doomemacs /home/"$name"/.config/emacs
-	sudo -u "$name" doom install -!
-	sudo -u "$name" doom sync
+	sudo -u "$name" /home/"$name"/.config/emacs/bin/doom install -!
+	sudo -u "$name" /home/"$name"/.config/emacs/bin/doom sync
 }
 
 gamemodeinstall() {
