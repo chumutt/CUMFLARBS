@@ -143,6 +143,10 @@ raysessioncleanup() {
 	rm -rf /home/$name/Ray\ Sessions
 }
 
+tldrcachedownload() {
+	sudo -u "$name" tldr -u
+}
+
 gitmakeinstall() {
 	progname="${1##*/}"
 	progname="${progname%.git}"
@@ -411,6 +415,8 @@ roswellmv || error "roswell failed to be moved to ~/.local/share/"
 gamemodeinstall || error "failed to apply gamemode group to user in question"
 
 raysessioncleanup || error "failed to clean up after raysession install"
+
+tldrcachedownload || error "failed to download tldr cache"
 
 # Last message! Install complete!
 finalize
