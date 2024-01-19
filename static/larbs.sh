@@ -379,13 +379,11 @@ EndSection' >/etc/X11/xorg.conf.d/40-libinput.conf
 
 whiptail --infobox "Setting browser privacy settings and add-ons..." 7 60
 
-# browserdir="/home/$name/.librewolf"
-browserdir="/home/$name/.mozilla/firefox"
+browserdir="/home/$name/.librewolf"
 profilesini="$browserdir/profiles.ini"
 
 # Start librewolf headless so it generates a profile. Then get that profile in a variable.
-# sudo -u "$name" librewolf --headless >/dev/null 2>&1 &
-sudo -u "$name" firefox --headless >/dev/null 2>&1 &
+sudo -u "$name" librewolf --headless >/dev/null 2>&1 &
 sleep 1
 profile="$(sed -n "/Default=.*.default-default/ s/.*=//p" "$profilesini")"
 pdir="$browserdir/$profile"
@@ -396,7 +394,6 @@ pdir="$browserdir/$profile"
 
 # Kill the now unnecessary librewolf instance.
 pkill -u "$name" librewolf
-pkill -u "$name" firefox
 
 # Allow wheel users to sudo with password and allow several system commands
 # (like `shutdown` to run without password).
