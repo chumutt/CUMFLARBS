@@ -254,6 +254,7 @@ Exec=/usr/local/lib/arkenfox-auto-update" > /etc/pacman.d/hooks/arkenfox.hook
 # dimmer
 # scrollanywhere
 # singlefile"
+# tridactyl
 
 installffaddons(){
 	addonlist="ublock-origin decentraleyes istilldontcareaboutcookies tridactyl darkreader keepassxc-browser tampermonkey video-downloadhelper betterttv fireshot audio-compressor clearurls foxytab languagetool instagram-save highlighter-notes redactit webp-image-converter pinterest-guest tab-stash"
