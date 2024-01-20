@@ -248,7 +248,7 @@ Exec=/usr/local/lib/arkenfox-auto-update" > /etc/pacman.d/hooks/arkenfox.hook
 }
 
 installffaddons(){
-	addonlist="ublock-origin decentraleyes istilldontcareaboutcookies tridactyl darkreader keepassxc-browser imagus tampermonkey video-downloadhelper betterttv fireshot download-images-from-tabs enhancer-for-youtube adnauseam audio-compressor clearurls dimmer foxytab languagetool instagram-save highlighter-notes redactit scrollanywhere singlefile webp-image-converter redacted pinterest-guest tab-stash"
+	addonlist="ublock-origin decentraleyes istilldontcareaboutcookies tridactyl darkreader keepassxc-browser tampermonkey video-downloadhelper betterttv fireshot audio-compressor clearurls foxytab languagetool instagram-save highlighter-notes redactit webp-image-converter pinterest-guest tab-stash"
 	addontmp="$(mktemp -d)"
 	trap "rm -fr $addontmp" HUP INT QUIT TERM PWR EXIT
 	IFS=' '
