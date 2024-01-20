@@ -247,7 +247,7 @@ Depends=arkenfox-user.js
 Exec=/usr/local/lib/arkenfox-auto-update" > /etc/pacman.d/hooks/arkenfox.hook
 }
 
-# list of ff addons that dont install correctly yet:
+# TODO list of ff addons that dont install correctly yet:
 # imagus
 # download-images-from-tabs
 # enhancer-for-youtube
