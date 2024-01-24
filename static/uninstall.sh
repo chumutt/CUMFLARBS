@@ -12,7 +12,7 @@ uninstallbins() {
 	rm -rf /home/"$name"/.local/bin
 }
 
-uninstalllocalsharelarbs() {
+uninstalllarbs() {
 	rm -rf /home/"$name"/.local/share/larbs
 }
 
@@ -34,6 +34,10 @@ uninstalldoomemacs() {
 	rm -rf /home/"$name"/.config/doom
 }
 
+uninstallroswell() {
+	rm -rf /home/"$name"/.local/share/roswell
+}
+
 finalize() {
 	whiptail --title "All done!" \
 		--msgbox "Congrats! Provided there were no hidden errors, things have been uninstalled successfully." 13 80
@@ -47,7 +51,8 @@ uninstallfirefox
 
 uninstalldoomemacs
 
-uninstalllocalsharelarbs
+uninstalllarbs
+uninstallroswell
 
 uninstallbins
 
