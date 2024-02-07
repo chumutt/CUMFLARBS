@@ -96,9 +96,10 @@ ability to run only several basic sudo commands without a password
 2. press y to download fonts
 3. press M-x (ALT + x) and search for =nerd-icons-install-fonts= by typing its name
 4. press ENTER to run the function
-5. press y again to download and install the fonts
-6. press SPACE q q or Logo key + q to close emacs
-7. reboot and emacs daemon should start automatically this time upon login
-8. change ~/.config/redshift.conf to your own latitude and longitude settings if using a VPN (it should detect your location automatically otherwise). redshift is autostarted (~/.xprofile).
-9. open browser by pressing Logo key + w
-10. accept preinstalled browser add-ons
+5. if you use C family programming languages do the same and run =lsp-install-server= in emacs and install cland and cmake servers
+6. press y again to download and install the fonts
+7. press SPACE q q or Logo key + q to close emacs
+8. reboot and emacs daemon should start automatically this time upon login
+9. change ~/.config/redshift.conf to your own latitude and longitude settings if using a VPN (it should detect your location automatically otherwise). redshift is autostarted (~/.xprofile).
+10. open browser by pressing Logo key + w
+11. accept preinstalled browser add-ons
