@@ -34,7 +34,7 @@ you with a fully configured diving-board for work or more customization.
 :CUSTOM_ID: customization
 :END:
 By default, LARBS uses the programs [[file:static/progs.csv][here in
-progs.csv]] and installs [[https://github.com/lukesmithxyz/voidrice][my
+progs.csv]] and installs [[https://github.com/chumutt/voidrice][my
 dotfiles repo (voidrice) here]], but you can easily change this by
 either modifying the default variables at the beginning of the script or
 giving the script one of these options:
