@@ -7,9 +7,9 @@
 ### OPTIONS AND VARIABLES ###
 
 dotfilesrepo="https://github.com/chumutt/voidrice.git"
-progsfile="https://raw.githubusercontent.com/chumutt/CUMFLARBS/master/static/progs.csv"
+progsfile="https://raw.githubusercontent.com/chumutt/CUMFLARBS/main/static/progs.csv"
 aurhelper="yay"
-repobranch="master"
+repobranch="main"
 export TERM=ansi
 
 ### FUNCTIONS ###
@@ -157,7 +157,7 @@ gitmakeinstall() {
 		--no-tags -q "$1" "$dir" ||
 		{
 			cd "$dir" || return 1
-			sudo -u "$name" git pull --force origin master
+			sudo -u "$name" git pull --force origin main
 		}
 	cd "$dir" || exit 1
 	make >/dev/null 2>&1
@@ -200,7 +200,7 @@ installationloop() {
 putgitrepo() {
 	# Downloads a gitrepo $1 and places the files in $2 only overwriting conflicts
 	whiptail --infobox "Downloading and installing config files..." 7 60
-	[ -z "$3" ] && branch="master" || branch="$repobranch"
+	[ -z "$3" ] && branch="main" || branch="$repobranch"
 	dir=$(mktemp -d)
 	[ ! -d "$2" ] && mkdir -p "$2"
 	chown "$name":wheel "$dir" "$2"
