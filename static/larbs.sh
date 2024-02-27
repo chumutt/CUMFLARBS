@@ -414,16 +414,16 @@ mkdir -p /etc/sysctl.d
 echo "kernel.dmesg_restrict = 0" > /etc/sysctl.d/dmesg.conf
 
 #install doom emacs
-doominstall || error "doom emacs failed to install"
+# doominstall || error "doom emacs failed to install"
 
-roswellinstall || error "roswell failed to install"
-roswellmv || error "roswell failed to be moved to ~/.local/share/"
+# roswellinstall || error "roswell failed to install"
+# roswellmv || error "roswell failed to be moved to ~/.local/share/"
 
-gamemodeinstall || error "failed to apply gamemode group to user in question"
+# gamemodeinstall || error "failed to apply gamemode group to user in question"
 
-raysessioncleanup || error "failed to clean up after raysession install"
+# raysessioncleanup || error "failed to clean up after raysession install"
 
-tldrcachedownload || error "failed to download tldr cache"
+# tldrcachedownload || error "failed to download tldr cache"
 
 # Last message! Install complete!
 finalize
