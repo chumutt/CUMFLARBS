@@ -427,7 +427,7 @@ fi
 
 [ -d /home/$name/Ray\ Sessions ] && raysessioncleanup
 
-tldrcachedownload || error "failed to download tldr cache"
+tldrcachedownload
 
 # Last message! Install complete!
 finalize
