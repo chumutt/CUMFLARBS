@@ -92,14 +92,17 @@ ability to run only several basic sudo commands without a password
 (=shutdown=, =reboot=, =pacman -Syu=).
 * Chu's Untitled Modification for Luke's Auto-Rice Bootstrapping Scripts (CUMFLARBS)
 ** post install instructions
-1. run =emacs=
-2. press y to download fonts
-3. press M-x (ALT + x) and search for =nerd-icons-install-fonts= by typing its name
-4. press ENTER to run the function
-5. if you use C family programming languages do the same and run =lsp-install-server= in emacs and install cland and cmake servers
-6. press y again to download and install the fonts
-7. press SPACE q q or Logo key + q to close emacs
-8. reboot and emacs daemon should start automatically this time upon login
-9. change ~/.config/redshift.conf to your own latitude and longitude settings if using a VPN (it should detect your location automatically otherwise). redshift is autostarted (~/.xprofile).
-10. open browser by pressing Logo key + w
-11. accept preinstalled browser add-ons
+1. log in as user and verify internet connectivity (open a network manager (~nmtui~) with ~Ctrl+Shift+W~ if on wi-fi).
+2. copy over your keys from ~/.gnupg on your current setup if you have one / backed one up
+3. copy over your password store from your current setup if you have one
+4. run =emacs=
+5. press y to download fonts
+6. press M-x (ALT + x) and search for =nerd-icons-install-fonts= by typing its name
+7. press ENTER to run the function
+8. if you use C family programming languages do the same and run =lsp-install-server= in emacs and install clang and cmake servers
+9. press y again to download and install the fonts
+10. press SPACE q q or Logo key + q to close emacs
+11. reboot and emacs daemon should start automatically this time upon login
+12. change ~/.config/redshift.conf to your own latitude and longitude settings if using a VPN (it should detect your location automatically otherwise). redshift is autostarted (~/.xprofile).
+13. open browser by pressing Logo key + w
+14. accept preinstalled browser add-ons
