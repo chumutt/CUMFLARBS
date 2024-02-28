@@ -119,10 +119,11 @@ maininstall() {
 }
 
 doominstall() {
-	sudo -u "$name" mkdir -p "/home/$name/.config/emacs"
-	sudo -u "$name" git clone https://github.com/doomemacs/doomemacs /home/"$name"/.config/emacs
-	sudo -u "$name" /home/"$name"/.config/emacs/bin/doom install -!
-	sudo -u "$name" /home/"$name"/.config/emacs/bin/doom sync
+	doomdir="/home/$name/.config/emacs"
+	sudo -u "$name" mkdir -p $doomdir
+	sudo -u "$name" git clone https://github.com/doomemacs/doomemacs $doomdir
+	sudo -u "$name" $doomdir/bin/doom install -!
+	sudo -u "$name" $doomdir/bin/doom sync
 }
 
 gamemodeinstall() {
@@ -135,7 +136,8 @@ roswellinstall() {
 }
 
 roswellmv() {
-	sudo -u "$name" mv "/home/$name/.roswell" "/home/$name/.local/share/roswell"
+	rosdir="/home/$name/.local/share/roswell"
+	sudo -u "$name" mv "/home/$name/.roswell" $rosdir
 }
 
 
@@ -414,14 +416,17 @@ mkdir -p /etc/sysctl.d
 echo "kernel.dmesg_restrict = 0" > /etc/sysctl.d/dmesg.conf
 
 #install doom emacs
-doominstall || error "doom emacs failed to install"
+[ -d "$doomdir" ] || doominstall
 
-roswellinstall || error "roswell failed to install"
-roswellmv || error "roswell failed to be moved to ~/.local/share/"
+[ -d "$rosdir" ] || roswellinstall && roswell mv
 
-gamemodeinstall || error "failed to apply gamemode group to user in question"
+if groups "$name" | grep -w "\bgamemode\b"; then
+	:
+else
+	gamemodeinstall
+fi
 
-raysessioncleanup || error "failed to clean up after raysession install"
+[ -d /home/$name/Ray\ Sessions ] && raysessioncleanup
 
 tldrcachedownload || error "failed to download tldr cache"
 
