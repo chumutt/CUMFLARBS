@@ -140,7 +140,6 @@ roswellmv() {
 	sudo -u "$name" mv "/home/$name/.roswell" $rosdir
 }
 
-
 raysessioncleanup() {
 	rm -rf /home/$name/Ray\ Sessions
 }
