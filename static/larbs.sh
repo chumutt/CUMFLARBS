@@ -415,9 +415,9 @@ mkdir -p /etc/sysctl.d
 echo "kernel.dmesg_restrict = 0" > /etc/sysctl.d/dmesg.conf
 
 #install doom emacs
-[ -d "$doomdir" ] || doominstall
+[ -d "/home/$name/.config/emacs" ] || doominstall
 
-[ -d "$rosdir" ] || roswellinstall && roswellmv
+[ -d "/home/$name/.local/share/roswell" ] || roswellinstall && roswellmv
 
 if groups "$name" | grep -w "\bgamemode\b"; then
 	:
