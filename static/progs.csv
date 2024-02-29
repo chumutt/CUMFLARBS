@@ -96,7 +96,7 @@ A,onlykey-udev,""
 ,cups,"is for using printers. (localhost:631 after enablestarting!)"
 A,brother-hl2170w,"is the driver for my printer specifically."
 ,gamemode,""
-,lib32-gamemode,
+,lib32-gamemode,""
 ,steam,""
 A,proton-ge-custom-bin,""
 A,redshift-minimal,""
