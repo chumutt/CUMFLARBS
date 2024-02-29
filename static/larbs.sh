@@ -148,6 +148,10 @@ tldrcachedownload() {
 	sudo -u "$name" tldr -u
 }
 
+oksl() {
+	ln -s /opt/OnlyKey/nw /usr/bin/
+}
+
 gitmakeinstall() {
 	progname="${1##*/}"
 	progname="${progname%.git}"
@@ -428,6 +432,8 @@ fi
 [ -d /home/$name/Ray\ Sessions ] && raysessioncleanup
 
 tldrcachedownload
+
+oksl
 
 # Last message! Install complete!
 finalize
