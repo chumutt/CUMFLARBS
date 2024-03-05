@@ -118,12 +118,18 @@ maininstall() {
 	installpkg "$1"
 }
 
+doomconfinstall() {
+	emacsdir="/home/$name/.config/emacs"
+	doomdir="/home/$name/.config/doom"
+	sudo -u "$name" git clone https://github.com/chumutt/doom $doomdir
+}
+
 doominstall() {
-	doomdir="/home/$name/.config/emacs"
-	sudo -u "$name" mkdir -p $doomdir
-	sudo -u "$name" git clone https://github.com/doomemacs/doomemacs $doomdir
-	sudo -u "$name" $doomdir/bin/doom install -!
-	sudo -u "$name" $doomdir/bin/doom sync
+	emacsdir="/home/$name/.config/emacs"
+	sudo -u "$name" mkdir -p $emacsdir
+	sudo -u "$name" git clone https://github.com/doomemacs/doomemacs $emacsdir
+	sudo -u "$name" $emacsdir/bin/doom install -!
+	sudo -u "$name" $emacsdir/bin/doom sync
 }
 
 gamemodeinstall() {
@@ -419,7 +425,7 @@ mkdir -p /etc/sysctl.d
 echo "kernel.dmesg_restrict = 0" > /etc/sysctl.d/dmesg.conf
 
 #install doom emacs
-[ -d "/home/$name/.config/emacs" ] || doominstall
+[ -d "/home/$name/.config/emacs" ] || doomconfinstall && doominstall
 
 [ -d "/home/$name/.local/share/roswell" ] || roswellinstall && roswellmv
 
