@@ -106,3 +106,7 @@ ability to run only several basic sudo commands without a password
 12. change ~/.config/redshift.conf to your own latitude and longitude settings if using a VPN (it should detect your location automatically otherwise). redshift is autostarted (~/.xprofile).
 13. open browser by pressing Logo key + w
 14. accept preinstalled browser add-ons
+* TODO List
+** TODO rm arkenfox.js
+** TODO rm librewolf-bin
+** TODO rm -rf on /etc/ssh/sshd_config.d/* upon install for "clear" defaults
