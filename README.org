@@ -75,7 +75,14 @@ Note: Only non-root users may build programs from the AUR. What LARBS does to by
 12. change ~/.config/redshift.conf to your own latitude and longitude settings if using a VPN (it should detect your location automatically otherwise). redshift is autostarted (~/.xprofile).
 13. open browser by pressing Logo key + w
 14. accept preinstalled browser add-ons
-** about
+** differences
+| thing          | LARBS       | CUMFLARBS               |
+|----------------+-------------+-------------------------|
+| browser        | librewolf   | firefox                 |
+| browser config | arkenfox.js | none                    |
+| text editor    | neovim      | neovim + DOOM GNU Emacs |
+|                |             |                         |
+|----------------+-------------+-------------------------|
 * TODO List
 ** TODO rm -rf on /etc/ssh/sshd_config.d/* upon install for "clear" defaults
 ** TODO groupadd user to video group upon install
