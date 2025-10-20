@@ -10,7 +10,13 @@ dotfilesrepo="https://github.com/chumutt/voidrice.git"
 progsfile="https://raw.githubusercontent.com/chumutt/CUMFLARBS/main/static/progs.csv"
 aurhelper="yay"
 repobranch="main"
+rosdir="/home/$name/.local/share/roswell"
+emacsdir="/home/$name/.config/emacs"
+doomdir="/home/$name/.config/doom"
 export TERM=ansi
+
+rssurls="https://www.archlinux.org/feeds/news/ \"tech\"
+https://github.com/chumutt/voidrice/commits/master.atom \"~CUMFLARBS dotfiles\""
 
 ### FUNCTIONS ###
 
@@ -108,8 +114,8 @@ manualinstall() {
 			sudo -u "$name" git pull --force origin master
 		}
 	cd "$repodir/$1" || exit 1
-	cd "$repodir/$1" &&
-		sudo -u "$name" makepkg --noconfirm -si >/dev/null 2>&1 || return 1
+	sudo -u "$name" \
+		makepkg --noconfirm -si >/dev/null 2>&1 || return 1
 }
 
 maininstall() {
@@ -119,13 +125,10 @@ maininstall() {
 }
 
 doomconfinstall() {
-	emacsdir="/home/$name/.config/emacs"
-	doomdir="/home/$name/.config/doom"
 	sudo -u "$name" git clone https://github.com/chumutt/doom $doomdir
 }
 
 doominstall() {
-	emacsdir="/home/$name/.config/emacs"
 	sudo -u "$name" mkdir -p $emacsdir
 	sudo -u "$name" git clone https://github.com/doomemacs/doomemacs $emacsdir
 	sudo -u "$name" $emacsdir/bin/doom install -!
@@ -137,12 +140,11 @@ gamemodeinstall() {
 }
 
 roswellinstall() {
-	sudo -u "$name" ros install
+	sudo -u "$name" ros install sbcl
 	sudo -u "$name" ros install sly
 }
 
 roswellmv() {
-	rosdir="/home/$name/.local/share/roswell"
 	sudo -u "$name" mv "/home/$name/.roswell" $rosdir
 }
 
@@ -154,7 +156,7 @@ tldrcachedownload() {
 	sudo -u "$name" tldr -u
 }
 
-oksl() {
+onlykeyinstall() {
 	ln -s /opt/OnlyKey/nw /usr/bin/
 }
 
@@ -342,7 +344,7 @@ adduserandpass || error "Error adding username and/or password."
 # in a fakeroot environment, this is required for all builds with AUR.
 trap 'rm -f /etc/sudoers.d/larbs-temp' HUP INT QUIT TERM PWR EXIT
 echo "%wheel ALL=(ALL) NOPASSWD: ALL
-Defaults:%wheel runcwd=*" >/etc/sudoers.d/larbs-temp
+Defaults:%wheel,root runcwd=*" >/etc/sudoers.d/larbs-temp
 
 # Make pacman colorful, concurrent downloads and Pacman eye-candy.
 grep -q "ILoveCandy" /etc/pacman.conf || sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
@@ -367,6 +369,10 @@ installationloop
 putgitrepo "$dotfilesrepo" "/home/$name" "$repobranch"
 rm -rf "/home/$name/.git/" "/home/$name/README.md" "/home/$name/LICENSE" "/home/$name/FUNDING.yml"
 
+# Write urls for newsboat if it doesn't already exist
+[ -s "/home/$name/.config/newsboat/urls" ] ||
+	echo "$rssurls" | sudo -u "$name" tee "/home/$name/.config/newsboat/urls" >/dev/null
+
 # Install vim plugins if not alread present.
 [ ! -f "/home/$name/.config/nvim/autoload/plug.vim" ] && vimplugininstall
 
@@ -381,14 +387,14 @@ sudo -u "$name" mkdir -p "/home/$name/.config/abook/"
 sudo -u "$name" mkdir -p "/home/$name/.config/mpd/playlists/"
 
 # Make dash the default #!/bin/sh symlink.
-
 ln -sfT /bin/dash /bin/sh >/dev/null 2>&1
 
 # dbus UUID must be generated for Artix runit.
 dbus-uuidgen >/var/lib/dbus/machine-id
 
 # Use system notifications for Brave on Artix
-echo "export \$(dbus-launch)" >/etc/profile.d/dbus.sh
+# Only do it when systemd is not present
+[ "$(readlink -f /sbin/init)" != "/usr/lib/systemd/systemd" ] && echo "export \$(dbus-launch)" >/etc/profile.d/dbus.sh
 
 # Enable tap to click
 [ ! -f /etc/X11/xorg.conf.d/40-libinput.conf ] && printf 'Section "InputClass"
@@ -414,8 +420,6 @@ profile="$(sed -n "/Default=.*.default-default/ s/.*=//p" "$profilesini")"
 pdir="$browserdir/$profile"
 
 [ -d "$pdir" ] && makeuserjs
-
-[ -d "$pdir" ] && installffaddons
 
 # Kill the now unnecessary librewolf instance.
 pkill -u "$name" librewolf
@@ -443,7 +447,10 @@ fi
 
 tldrcachedownload
 
-oksl
+onlykeyinstall
+
+# Cleanup
+rm -f /etc/sudoers.d/larbs-temp
 
 # Last message! Install complete!
 finalize
