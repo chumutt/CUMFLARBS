@@ -10,9 +10,6 @@ dotfilesrepo="https://github.com/chumutt/voidrice.git"
 progsfile="https://raw.githubusercontent.com/chumutt/CUMFLARBS/main/static/progs.csv"
 aurhelper="yay"
 repobranch="main"
-rosdir="/home/$name/.local/share/roswell"
-emacsdir="/home/$name/.config/emacs"
-doomdir="/home/$name/.config/doom"
 export TERM=ansi
 
 rssurls="https://www.archlinux.org/feeds/news/ \"tech\"
@@ -360,9 +357,14 @@ $aurhelper -Y --save --devel
 
 # The command that does all the installing. Reads the progs.csv file and
 # installs each needed program the way required. Be sure to run this only after
-# the user has been created and has priviledges to run sudo without a password
+# the user has been created and has privileges to run sudo without a password
 # and all build dependencies are installed.
 installationloop
+
+# Set these options and variables after getuserandpass and the rest of the installation have finished.
+rosdir="/home/$name/.local/share/roswell"
+emacsdir="/home/$name/.config/emacs"
+doomdir="/home/$name/.config/doom"
 
 # Install the dotfiles in the user's home directory, but remove .git dir and
 # other unnecessary files.
@@ -432,11 +434,12 @@ echo "Defaults editor=/usr/bin/nvim" >/etc/sudoers.d/02-larbs-visudo-editor
 mkdir -p /etc/sysctl.d
 echo "kernel.dmesg_restrict = 0" > /etc/sysctl.d/dmesg.conf
 
-#install doom emacs
+# Install DOOM Emacs
 [ -d "/home/$name/.config/emacs" ] || doomconfinstall && doominstall
 
 [ -d "/home/$name/.local/share/roswell" ] || roswellinstall && roswellmv
 
+# Gamemode
 if groups "$name" | grep -w "\bgamemode\b"; then
 	:
 else
