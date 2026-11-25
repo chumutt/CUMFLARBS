@@ -6,14 +6,14 @@
 
 ### OPTIONS AND VARIABLES ###
 
-dotfilesrepo="https://github.com/chumutt/voidrice.git"
+dotfilesrepo="https://github.com/chumutt/dogfiles.git"
 progsfile="https://raw.githubusercontent.com/chumutt/CUMFLARBS/main/static/progs.csv"
 aurhelper="yay"
 repobranch="main"
 export TERM=ansi
 
 rssurls="https://www.archlinux.org/feeds/news/ \"tech\"
-https://github.com/chumutt/voidrice/commits/master.atom \"~CUMFLARBS dotfiles\""
+https://github.com/chumutt/dogfiles/commits/main.atom \"~dogfiles commits\""
 
 ### FUNCTIONS ###
 

@@ -63,5 +63,5 @@ You can figure out about the system in a lot of different ways:
 
 - LARBS has a built-in readme document and list of all the many efficient keybindings that you can read [here](/larbs-dwm.pdf). By pressing <kbd>super + F1</kbd> at any time while in the system you can read this document.
 - The many illustrative videos on [Luke's YouTube channel](https://youtube.com/lukesmithxyz), some of which are easily watchable in LARBS by pressing <kbd>super + F2</kbd>.
-- The documentation on the <a href="https://github.com/lukesmithxyz/voidrice">Github</a> page.
+- The documentation on the <a href="https://github.com/chumutt/dogfiles">Github</a> page.
 - By just installing it and diving in!
