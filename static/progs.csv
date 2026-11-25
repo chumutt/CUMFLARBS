@@ -125,3 +125,18 @@ A,adwaita-qt5-git,"dark theme (continued)"
 A,adwaita-qt6-git,"dark theme (continued)"
 ,beets,"is a flexible music library manager and tagger"
 ,wireless-regdb,"for wireless region registry"
+
+# Wayland/Hyprland session (matches chunix; started on tty1 by the
+# navi.session=hyprland boot entry, see .config/shell/zprofile-hyprland.zsh)
+,hyprland,"is the Wayland compositor whose start-hyprland starts the session."
+,waybar,"is the status bar for the Hyprland session."
+,foot,"is the terminal for the Hyprland session."
+,fuzzel,"is the Wayland app launcher."
+,hyprlock,"locks and blanks the screen in the Hyprland session."
+,hyprsunset,"filters blue light in the Hyprland session."
+,mako,"shows notifications in the Hyprland session."
+,awww,"is the animated wallpaper daemon used by setbg and awww-wallpaper.service."
+,xdg-desktop-portal-hyprland,"lets apps screenshot and share screens under Hyprland."
+,xdg-desktop-portal-gtk,"provides file pickers and portals under Hyprland."
+,qt5-wayland,"lets Qt5 apps run under Wayland."
+,qt6-wayland,"lets Qt6 apps run under Wayland."
